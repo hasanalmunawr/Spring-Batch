@@ -1,4 +1,4 @@
-package com.hasanalmunawr.spring_batch.config;
+package com.hasanalmunawr.spring_batch.processor;
 
 import com.hasanalmunawr.spring_batch.entity.Customer;
 import lombok.NonNull;
