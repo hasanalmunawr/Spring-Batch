@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/files_keeper
+    username: postgres
+    password: badiro12
+    driver-class-name: org.postgresql.Driver
+    dbcp2:
+      default-auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: create
+    open-in-view: false
+    show-sql: true
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false  # Does not trigger the batch when start up the app, i want to trigger by controller
+server:
+  port: 9090
