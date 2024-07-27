@@ -1,6 +1,7 @@
 package com.hasanalmunawr.spring_batch.config;
 
 import com.hasanalmunawr.spring_batch.entity.Customer;
+import com.hasanalmunawr.spring_batch.processor.CustomerItemProcessor;
 import com.hasanalmunawr.spring_batch.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -36,7 +37,7 @@ public class BatchConfig {
     public FlatFileItemReader<Customer> reader() {
        return new FlatFileItemReaderBuilder<Customer>()
                .name("CustomerItemReader")
-               .resource(new ClassPathResource("customer.csv"))
+               .resource(new ClassPathResource("customers.csv"))
                .linesToSkip(1)
                .lineMapper(lineMapper())
                .build();
@@ -55,7 +56,8 @@ public class BatchConfig {
       return writer;
     }
 
-    private LineMapper<Customer> lineMapper() {
+    @Bean
+    public LineMapper<Customer> lineMapper() {
         DefaultLineMapper<Customer> lineMapper = new DefaultLineMapper<>();
 
         DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
