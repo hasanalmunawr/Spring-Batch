@@ -10,7 +10,8 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
 
     @Override
     public Customer process(@NonNull Customer customer) throws Exception {
-        if (customer.getCountry().equals("United States")) {
+//        if (customer != null) { // FOR FILTER INTO DATABASE
+        if (customer.getCountry().equals("Indonesia")) { // FOR FILTER INTO DATABASE
             log.info("[CustomerItemProcessor:process] Processing Customer : {}", customer.getFirstName());
             return customer;
         } else {
